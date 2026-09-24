@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OdontoBraz - Clínica Odontológica Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #d4af37;
+            --accent-dark: #b8860b;
+            --light-bg: #f9f9f9;
+            --text-dark: #1f1f1f;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            border-bottom: 2px solid var(--accent);
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-header {
+            background: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--accent);
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .cta-header:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            margin-top: 80px;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid var(--accent);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* ===== SOBRE ===== */
+        .sobre {
+            padding: 6rem 2rem;
+            background: var(--white);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title .accent-word {
+            color: var(--accent);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .sobre-text {
+            text-align: left;
+        }
+
+        .sobre-text p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .sobre-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .sobre-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .sobre-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== SERVIÇOS ===== */
+        .servicos {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background: var(--primary);
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.08);
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== RESULTADOS ===== */
+        .resultados {
+            padding: 6rem 2rem;
+            background: var(--white);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .resultados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            height: 400px;
+            cursor: pointer;
+            border: 3px solid var(--accent);
+        }
+
+        .result-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .result-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .result-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .result-item:hover .result-overlay {
+            opacity: 1;
+        }
+
+        .result-overlay p {
+            color: var(--white);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* ===== DIFERENCIAIS ===== */
+        .diferenciais {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            max-width: 1400px;
+            margin: 0 auto;
+            color: var(--white);
+        }
+
+        .diferenciais .section-title {
+            color: var(--white);
+        }
+
+        .diferenciais .section-title .accent-word {
+            color: var(--accent);
+        }
+
+        .diferenciais .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .diferencial-item {
+            background: rgba(255,255,255,0.08);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--accent);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .diferencial-item:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .diferencial-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .diferencial-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .diferencial-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* ===== DEPOIMENTOS ===== */
+        .depoimentos {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .depoimento-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .depoimento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .depoimento-texto {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .depoimento-autor {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CTA FINAL ===== */
+        .cta-final {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            text-align: center;
+            color: var(--white);
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            border-radius: 20px;
+            border: 3px solid var(--accent);
+        }
+
+        .cta-final h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta-final {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-cta-final:hover {
+            background: #e5c158;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+            border-top: 2px solid var(--accent);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 1.5rem;
+                margin-top: 70px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 0.9rem 1.5rem;
+            }
+
+            .sobre-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-features {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-final {
+                margin-bottom: 0;
+            }
+
+            .cta-final h2 {
+                font-size: 2rem;
+            }
+
+            .diferenciais-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .result-item {
+                height: 300px;
+            }
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo-icon">B</div>
+                <div class="logo-text">Odonto<span>Braz</span></div>
+            </div>
+            <nav>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#resultados">Resultados</a>
+                <a href="#depoimentos">Pacientes</a>
+            </nav>
+            <a href="https://wa.me/5579998462075" class="cta-header">Agendar Agora</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Seu sorriso merece <span class="highlight">cuidado especializado</span></h1>
+            <p>Na OdontoBraz, oferecemos atendimento odontológico completo com segurança, humanidade e os melhores resultados para você e sua família.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5579998462075" class="btn btn-primary">Agende sua Avaliação</a>
+                <a href="#servicos" class="btn btn-secondary">Conheça os Serviços</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="IMG_2616.jpg" alt="Clareamento Dental - OdontoBraz">
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="sobre" id="sobre">
+        <div class="section-header">
+            <h2 class="section-title">Sobre a <span class="accent-word">OdontoBraz</span></h2>
+            <p class="section-subtitle">Sua confiança é nossa prioridade. Cuidado profissional com humanidade.</p>
+        </div>
+        
+        <div class="sobre-content">
+            <div class="sobre-text">
+                <p>A OdontoBraz é uma clínica odontológica moderna e completa, dedicada a oferecer os melhores tratamentos para você e sua família. Com profissionais capacitados e estrutura de ponta, garantimos segurança, conforto e resultados excepcionais.</p>
+                
+                <p>Acreditamos que um sorriso saudável é um reflexo de qualidade de vida. Por isso, utilizamos as técnicas mais avançadas e mantemos os mais altos padrões de higiene e segurança.</p>
+
+                <div class="sobre-features">
+                    <div class="feature-item">
+                        <h3>✓ Humanizado</h3>
+                        <p>Atendimento acolhedor e personalizado</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>✓ Seguro</h3>
+                        <p>Rigorosos protocolos de higiene</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>✓ Completo</h3>
+                        <p>Todos os procedimentos em um local</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>✓ Moderno</h3>
+                        <p>Tecnologia e técnicas atualizadas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sobre-image">
+                <img src="IMG_2617.jpg" alt="Profissionais OdontoBraz - Atendimento Humanizado">
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="servicos" id="servicos">
+        <div class="section-header">
+            <h2 class="section-title">Nossos <span class="accent-word">Serviços</span></h2>
+            <p class="section-subtitle">Tratamentos completos para toda a família</p>
+        </div>
+        
+        <div class="servicos-grid">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="IMG_2616.jpg" alt="Clareamento Dental">
+                    <span class="service-badge">Popular</span>
+                </div>
+                <div class="service-content">
+                    <h3>Clareamento Dental</h3>
+                    <p>Recupere o brilho natural do seu sorriso com técnicas seguras e eficazes desenvolvidas para cada paciente.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="IMG_2615.jpg" alt="Prótese Dentária">
+                </div>
+                <div class="service-content">
+                    <h3>Prótese Dentária</h3>
+                    <p>Restauração completa do seu sorriso com próteses personalizadas e confortáveis para melhor funcionalidade.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="IMG_2617.jpg" alt="Restauração Dental">
+                </div>
+                <div class="service-content">
+                    <h3>Restauração & Obturação</h3>
+                    <p>Tratamento moderno de cáries com materiais duráveis que restauram a funcionalidade e estética do dente.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="IMG_2615.jpg" alt="Aparelho Odontológico">
+                </div>
+                <div class="service-content">
+                    <h3>Aparelho Odontológico</h3>
+                    <p>Tratamento ortodôntico moderno que alinha seus dentes com segurança e conforto absoluto.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="IMG_2616.jpg" alt="Limpeza Dental">
+                </div>
+                <div class="service-content">
+                    <h3>Limpeza Dental</h3>
+                    <p>Higiene profunda que remove tártaro e placa. Fundamental para manter a saúde bucal em dia.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="IMG_2617.jpg" alt="Atendimento Infantil">
+                </div>
+                <div class="service-content">
+                    <h3>Atendimento Infantil</h3>
+                    <p>Ambiente acolhedor para crianças com profissionais especializados em criar confiança desde cedo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section class="resultados" id="resultados">
+        <div class="section-header">
+            <h2 class="section-title">Antes e <span class="accent-word">Depois</span></h2>
+            <p class="section-subtitle">Transformações que falam por si só</p>
+        </div>
+        
+        <div class="resultados-grid">
+            <div class="result-item">
+                <img src="IMG_2616.jpg" alt="Resultado de Clareamento">
+                <div class="result-overlay">
+                    <p>Clareamento Dental - Brilho e segurança</p>
+                </div>
+            </div>
+
+            <div class="result-item">
+                <img src="IMG_2615.jpg" alt="Resultado de Prótese">
+                <div class="result-overlay">
+                    <p>Prótese Dentária - Recuperando confiança</p>
+                </div>
+            </div>
+
+            <div class="result-item">
+                <img src="IMG_2617.jpg" alt="Resultado de Aparelho">
+                <div class="result-overlay">
+                    <p>Aparelho Odontológico - Sorriso alinhado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="diferenciais">
+        <div class="section-header">
+            <h2 class="section-title">Por que escolher a <span class="accent-word">OdontoBraz</span>?</h2>
+            <p class="section-subtitle">Diferenças que fazem diferença no seu tratamento</p>
+        </div>
+
+        <div class="diferenciais-grid">
+            <div class="diferencial-item">
+                <div class="diferencial-icon">💙</div>
+                <h3>Humanizado</h3>
+                <p>Escutamos seus anseios e cuidamos com dedicação e carinho.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <div class="diferencial-icon">🎓</div>
+                <h3>Profissionais Capacitados</h3>
+                <p>Equipe atualizada com as melhores técnicas odontológicas.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <div class="diferencial-icon">👨‍👩‍👧</div>
+                <h3>Para Toda Família</h3>
+                <p>De crianças até adultos com tratamentos específicos.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <div class="diferencial-icon">🏥</div>
+                <h3>Estrutura Completa</h3>
+                <p>Tecnologia moderna e ambiente acolhedor para seu conforto.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <div class="diferencial-icon">📱</div>
+                <h3>Fácil Agendamento</h3>
+                <p>Marque sua consulta rapidamente pelo WhatsApp.</p>
+            </div>
+
+            <div class="diferencial-item">
+                <div class="diferencial-icon">✅</div>
+                <h3>Segurança Garantida</h3>
+                <p>Rigorosos protocolos de higiene e esterilização.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos" id="depoimentos">
+        <div class="section-header">
+            <h2 class="section-title">Nossos <span class="accent-word">Pacientes</span></h2>
+            <p class="section-subtitle">O que dizem sobre nós</p>
+        </div>
+
+        <div class="depoimentos-grid">
+            <div class="depoimento-card">
+                <div class="stars">★★★★★</div>
+                <p class="depoimento-texto">"Meu filho de 8 anos viaja todo contente para Pirambu porque só nessa maravilhosa clínica que ele confia. Cuidado, carinho e confiança para transformar a experiência das crianças no dentista."</p>
+                <div class="depoimento-autor">Mãe de Paciente Infantil</div>
+            </div>
+
+            <div class="depoimento-card">
+                <div class="stars">★★★★★</div>
+                <p class="depoimento-texto">"Levei minha filha para colocar aparelho e amei. A Dra é muito gentil, parabéns pela equipe. É tão bom quando chegamos num local e tem pessoas boas. Amo o trabalho de toda a equipe!"</p>
+                <div class="depoimento-autor">Paciente Satisfeita</div>
+            </div>
+
+            <div class="depoimento-card">
+                <div class="stars">★★★★★</div>
+                <p class="depoimento-texto">"Ótimo atendimento. Voltaremos em breve! A satisfação dos nossos pacientes é o que nos motiva a oferecer sempre um atendimento de excelência."</p>
+                <div class="depoimento-autor">Paciente Regular</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <h2>Pronto para transformar seu sorriso?</h2>
+        <p>Entre em contato conosco agora mesmo e agende sua consulta. Estamos aqui para cuidar de você com dedicação, profissionalismo e humanidade.</p>
+        <a href="https://wa.me/5579998462075" class="btn btn-cta-final">Falar com a OdontoBraz no WhatsApp</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>OdontoBraz</h3>
+                <p>Sua confiança é nossa prioridade. Cuidado profissional com humanidade em cada atendimento.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>📱 <a href="https://wa.me/5579998462075">WhatsApp: +55 79 99846-2075</a></p>
+                <p>📍 Praça Nossa Senhora Do Carmo, Nº 327</p>
+                <p>Em Frente à Rodoviária – Pirambu - SE</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Horários</h3>
+                <p>Segunda a Sexta<br>8:00 às 18:00</p>
+                <p>Sábado<br>8:00 às 13:00</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Serviços</h3>
+                <p><a href="#servicos">Clareamento Dental</a></p>
+                <p><a href="#servicos">Prótese Dentária</a></p>
+                <p><a href="#servicos">Aparelho Odontológico</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 OdontoBraz. Todos os direitos reservados. | Desenvolvido com cuidado e dedicação</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Animação ao entrar na tela
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .depoimento-card, .diferencial-item, .result-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
